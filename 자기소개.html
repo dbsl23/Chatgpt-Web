@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>게임북 자기소개</title>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .tab-button {
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .tab-button:hover {
+      transform: scale(1.05);
+    }
+
+    .tab-button img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid transparent;
+    }
+
+    .tab-button.active img {
+      border-color: #4b6cb7;
+    }
+
+    .tab-content {
+      display: none;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 25px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .tab-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>나를 소개합니다!</h1>
+  <p>아래 이미지를 클릭해서 저를 알아보세요!</p>
+
+  <div class="tab-buttons">
+    <div class="tab-button active" data-tab="name">
+      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="이름">
+    </div>
+    <div class="tab-button" data-tab="school">
+      <img src="https://cdn-icons-png.flaticon.com/512/1048/1048927.png" alt="학교">
+    </div>
+    <div class="tab-button" data-tab="interest">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="관심사">
+    </div>
+  </div>
+
+  <div class="tab-content active" id="name">
+    <h2>이름</h2>
+    <p>안녕하세요! 저는 <strong>양윤희</strong>입니다.</p>
+  </div>
+
+  <div class="tab-content" id="school">
+    <h2>학교 & 학과 & 학번</h2>
+    <img src="https://i.namu.wiki/i/yAc31lfzOtEjXC0c93pCDhVuUIYqpM2Vjus-NKDw_4cGuGBPkikTtWirBEw1TILVey090oOVEtQ5WY7380RTdg.png" alt="학교 이미지">
+    <p><strong>가천대학교</strong><br>의료산업경영학과<br>202331859</p>
+  </div>
+
+  <div class="tab-content" id="interest">
+    <h2>관심사</h2>
+    <img src="https://www.ssglanders.com/img/wyverns/emblem/new/emblem_01.png" alt="관심사 이미지">
+    <p>야구를 좋아합니다! 제가 응원하고 있는 팀은 SSG랜더스입니다!</p>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
